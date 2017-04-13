@@ -18,9 +18,24 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '1234', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'http://211.72.12.245:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+  },
+  verifyUserEmails: process.env.VERIFY_USER_EMAIL || true,
+  emailVerifyTokenValidityDuration: process.env.EMAIL_VERIFY_TOKEN_VALIDITY_DURATION || 2 * 60 * 60,
+  publicServerURL: 'http://211.72.12.245:1337/parse',
+  appName: 'MyApp',
+  emailAdapter: {
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+      // The address that your emails come from
+      fromAddress: 'peter.mc.chen@gmail.com',
+      // Your domain from mailgun.com
+      domain: 'parse.petermcchen.gmail.com',
+      // Your API key from mailgun.com
+      apiKey: 'key-ee1e706fdedb5212131633a642ed2675',
+    }
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
@@ -31,7 +46,7 @@ var dashboard = new ParseDashboard({ // TODO...
         // Parse Dashboard settings
   "apps": [
     {
-      "serverURL": "http://192.168.2.146:1337/parse",
+      "serverURL": "http://211.72.12.245:1337/parse",
       "appId": "myAppId",
       "masterKey": "1234",
       "appName": "MyApp"
