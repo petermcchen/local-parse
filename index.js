@@ -4,7 +4,7 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard'); // TODO...
-var allowInsecureHTTP = true; // TODO...
+var allowInsecureHTTP = true; // TODO...
 var path = require('path');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
@@ -44,14 +44,14 @@ var api = new ParseServer({
 
 var dashboard = new ParseDashboard({ // TODO...
         // Parse Dashboard settings
-  "apps": [
-    {
-      "serverURL": "http://211.72.12.245:1337/parse",
-      "appId": "myAppId",
-      "masterKey": "1234",
-      "appName": "MyApp"
-    }
-  ],
+  "apps": [
+    {
+      "serverURL": "http://192.168.2.146:1337/parse",
+      "appId": "myAppId",
+      "masterKey": "1234",
+      "appName": "MyApp"
+    }
+  ],
   "users": [
     {
       "user":"peter",
